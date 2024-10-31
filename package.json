@@ -1,6 +1,6 @@
 {
   "name": "libliveopsuitest",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "files": [
     "dist"
@@ -35,7 +35,10 @@
     "@storybook/vue3": "^8.3.6",
     "@storybook/vue3-vite": "^8.3.6",
     "@vitejs/plugin-vue": "^5.1.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
     "storybook": "^8.3.6",
+    "tailwindcss": "^3.4.14",
     "vite": "^5.4.10"
   }
 }
