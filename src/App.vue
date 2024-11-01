@@ -1,11 +1,11 @@
 <template>
   <div>
-    test <PersonalButton text="text" />
+    <div>test <Button size="lg" type="primary">text</Button></div>
+
   </div>
 
 </template>
 <script setup>
-import PersonalButton from "./components/PersonalButton.vue";
-
+import Button from "./components/Button.vue";
 
 </script>

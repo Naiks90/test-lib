@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  theme: {
     theme: {
       extend: {
         transitionProperty: {
@@ -9,6 +8,10 @@ export default {
           'transform': 'transform',
           'opacity': 'opacity',
           'left': 'left',
+        },
+        fontFamily: {
+          sans: ['Manrope', 'sans-serif'],
+          serif: ['Merriweather', 'serif'],
         },
         colors: {
           'white': '#ffffff',
@@ -51,6 +54,5 @@ export default {
         }
       },
     },
-  },
   plugins: [],
 }
