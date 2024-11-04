@@ -8,7 +8,6 @@
 </template>
 
 <script setup>
-// import Icon from "~/components/Icon.vue";
 import Loader from "./Loader.vue"
 import { computed } from "vue"
 
@@ -46,6 +45,7 @@ const getSizeClass = computed(() => {
 })
 
 const getTypeClass = computed(() => {
+    if(!props.type) return 'btn'
     const classSwitch = {
         primary: 'btn-primary',
         secondary: 'btn-secondary',
@@ -63,118 +63,114 @@ const getTypeClass = computed(() => {
 
 </script>
 <style lang="scss">
-@tailwind base;
-@tailwind components;
+.btn {
+    @apply rounded-lg leading-none flex items-center justify-center gap-2 transition p-0;
+    height: 48px;
+    user-select: none;
 
-@layer components {
-    .btn {
-        @apply rounded-lg leading-none flex items-center justify-center gap-2 transition;
-        height: 48px;
-        user-select: none;
+}
+
+.btn-lg {
+    @apply btn;
+    height: 45px;
+}
+
+.btn-md {
+    @apply btn;
+    height: 40px;
+}
+
+.btn-sm {
+    @apply btn;
+    height: 32px;
+}
+
+.btn-primary {
+    @apply bg-cyan-500 text-gray-900 font-medium;
+
+    &:hover {
+        @apply bg-cyan-350;
     }
 
-    .btn-lg {
-        @apply btn;
-        height: 45px;
+    &[disabled] {
+        @apply border border-gray-550/[.28] bg-white/[.02] text-gray-500;
+    }
+}
+
+.btn-secondary {
+    @apply bg-gray-200/[.08] text-gray-200 font-medium;
+
+    &:hover {
+        @apply bg-gray-200 text-gray-900;
     }
 
-    .btn-md {
-        @apply btn;
-        height: 40px;
+}
+
+.btn-red {
+    @apply bg-red-500 text-gray-900 font-medium;
+
+    &:hover {
+        @apply bg-red-400;
+    }
+}
+
+.btn-gray {
+    @apply bg-gray-200/[.08] p-3 rounded-lg leading-none font-semibold;
+
+    &[disabled] {
+        @apply border border-gray-200/[.28] bg-white/[.02] text-gray-500;
+    }
+}
+
+.btn-tag {
+    @apply rounded bg-gray-200/[.08] text-gray-200 font-medium;
+
+    &:hover {
+        @apply bg-cyan-500 text-gray-900;
     }
 
-    .btn-sm {
-        @apply btn;
-        height: 32px;
+    &_active {
+        @apply bg-cyan-500 text-gray-900;
     }
 
-    .btn-primary {
-        @apply bg-cyan-500 text-gray-900 font-medium;
-
-        &:hover {
-            @apply bg-cyan-350;
-        }
-
-        &[disabled] {
-            @apply border border-gray-550/[.28] bg-white/[.02] text-gray-500;
-        }
+    &_disabled {
+        @apply bg-gray-600 text-gray-400 hover:bg-gray-600 hover:text-gray-400 pointer-events-none;
     }
+}
 
-    .btn-secondary {
-        @apply bg-gray-200/[.08] text-gray-200 font-medium;
+.btn-filters {
+    @apply size-9 rounded-lg border border-cyan-800 text-gray-200 flex items-center justify-center shrink-0;
+}
 
-        &:hover {
-            @apply bg-gray-200 text-gray-900;
-        }
+.btn-secondary-outlined {
+    @apply bg-gray-800 text-gray-200 border border-gray-200 rounded-lg;
 
+    &:hover {
+        background-color: rgba(217, 217, 217, 0.08);
     }
+}
 
-    .btn-red {
-        @apply bg-red-500 text-gray-900 font-medium;
+.btn-green {
+    @apply bg-green-500 text-gray-900 font-medium;
 
-        &:hover {
-            @apply bg-red-400;
-        }
+    &:hover {
+        @apply bg-green-400;
     }
+}
 
-    .btn-gray {
-        @apply bg-gray-200/[.08] p-3 rounded-lg leading-none font-semibold;
+.btn-border-red {
+    @apply bg-gray-800 border border-red-600;
 
-        &[disabled] {
-            @apply border border-gray-200/[.28] bg-white/[.02] text-gray-500;
-        }
-    }
-
-    .btn-tag {
-        @apply rounded bg-gray-200/[.08] text-gray-200 font-medium;
-
-        &:hover {
-            @apply bg-cyan-500 text-gray-900;
-        }
-
-        &_active {
-            @apply bg-cyan-500 text-gray-900;
-        }
-
-        &_disabled {
-            @apply bg-gray-600 text-gray-400 hover:bg-gray-600 hover:text-gray-400 pointer-events-none;
-        }
-    }
-
-    .btn-filters {
-        @apply size-9 rounded-lg border border-cyan-800 text-gray-200 flex items-center justify-center shrink-0;
-    }
-
-    .btn-secondary-outlined {
-        @apply bg-gray-800 text-gray-200 border border-gray-200 rounded-lg;
-
-        &:hover {
-            background-color: rgba(217, 217, 217, 0.08);
-        }
-    }
-
-    .btn-green {
-        @apply bg-green-500 text-gray-900 font-medium;
-
-        &:hover {
-            @apply bg-green-400;
-        }
-    }
-
-    .btn-border-red {
+    &:hover {
         @apply bg-gray-800 border border-red-600;
-
-        &:hover {
-            @apply bg-gray-800 border border-red-600;
-        }
     }
+}
 
-    .btn-border-green {
+.btn-border-green {
+    @apply bg-gray-800 border border-green-500;
+
+    &:hover {
         @apply bg-gray-800 border border-green-500;
-
-        &:hover {
-            @apply bg-gray-800 border border-green-500;
-        }
     }
 }
 </style>
