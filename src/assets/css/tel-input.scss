@@ -1,0 +1,171 @@
+.phone-input {
+    @apply relative z-10 w-full;
+}
+
+.phone-input__label{
+    @apply text-xs text-gray-400 mb-[6px] uppercase;
+}
+
+.phone-input__inner {
+    @apply grid grid-cols-[auto_1fr] items-center text-sm leading-[125%] text-gray-200 min-h-10 w-full gap-2;
+
+    &.disabled {
+        pointer-events: none;
+        @apply text-gray-400;
+
+        .phone-input__selection {
+            @apply text-gray-400;
+        }
+    }
+}
+
+.phone-input__dropdown {
+    @apply flex flex-col items-center justify-center cursor-pointer;
+}
+
+.phone-input__dropdown-list {
+    left: 0px;
+    right: 0px;
+    top: 68px;
+    @apply rounded-lg bg-cyan-900 border-solid border border-cyan-500 w-full py-3 max-h-52 overflow-auto absolute m-0 p-0 list-none z-50;
+    box-shadow: 0px 0px 0px 4px rgba(0, 210, 255, 0.06);
+
+    &_offset{
+        top: 50px;
+    }
+
+    &::-webkit-scrollbar {
+        cursor: pointer;
+        position: relative;
+        width: 3px;
+        height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        @apply bg-gray-950 rounded my-3;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        @apply bg-gray-625;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        @apply bg-gray-200 rounded;
+        background-clip: padding-box;
+    }
+}
+
+.phone-input__selection {
+    @apply flex items-center gap-1 text-gray-200 h-10 px-3 rounded-lg transition border border-solid border-gray-550/[.28] bg-white/[.02];
+
+    &:hover,
+    &_open {
+        @apply border-cyan-500 bg-cyan-500/[.02];
+        box-shadow: 0px 0px 0px 4px rgba(0, 210, 255, 0.06);
+    }
+
+    &_error {
+        @apply border-red-900 bg-red-900/[.02];
+        box-shadow: 0px 0px 0px 4px rgba(240, 68, 56, 0.12);
+
+        &:hover {
+            @apply border-red-900 bg-red-900/[.2];
+            box-shadow: 0px 0px 0px 4px rgba(240, 68, 56, 0.12);
+        }
+    }
+}
+
+.phone-input__code {
+    @apply font-medium;
+}
+
+.phone-input__country-code {
+    @apply text-gray-400 font-normal;
+}
+
+.phone-input__flag {
+    @apply mr-2;
+}
+
+.phone-input__search-box-wrapper {
+    @apply mx-3 border-b border-t-0 border-l-0 border-r-0 border-solid border-cyan-600 mb-2;
+}
+
+.phone-input__search-box {
+    @apply w-full mb-3 border-0 outline-none bg-transparent text-gray-200;
+}
+
+.phone-input__dropdown-item {
+    @apply cursor-pointer py-2 px-3 hover:bg-cyan-600;
+}
+
+.phone-input__dropdown-item .phone-input__flag {
+    @apply inline-block mr-2;
+}
+
+.phone-input__input-wrapper {
+    @apply flex items-center h-full px-3 rounded-lg border border-solid border-gray-550/[.28] transition bg-white/[.02];
+
+    &:hover,
+    &:has(input:focus),
+    &:has(input:hover) {
+        @apply border-cyan-500 bg-cyan-500/[.02];
+        box-shadow: 0px 0px 0px 4px rgba(0, 210, 255, 0.06);
+    }
+
+    &_error {
+        @apply border-red-900 bg-red-900/[.02];
+        box-shadow: 0px 0px 0px 4px rgba(240, 68, 56, 0.12);
+
+        &:hover,
+        &:has(input:focus),
+        &:has(input:hover) { 
+            @apply border-red-900 bg-red-900/[.2];
+            box-shadow: 0px 0px 0px 4px rgba(240, 68, 56, 0.12);
+        }
+    }
+
+    &:has(input:disabled) {
+        @apply border-gray-550/[.28] bg-white/[.02];
+
+        input {
+            @apply text-gray-400 cursor-not-allowed;
+        }
+
+        box-shadow:none;
+    }
+}
+
+.phone-input__input {
+    @apply h-full w-full border-0 outline-none bg-transparent text-gray-200;
+}
+
+.phone-input__error {
+    @apply text-red-500 text-xs col-start-2;
+}
+
+.phone-input__btn-svg {
+    @apply flex pointer-events-auto bg-transparent border-none;
+}
+
+.phone-input__wrapper-approve {
+    @apply flex gap-1 items-center;
+}
+
+.phone-input__open-list-enter-active,
+.phone-input__open-list-leave-active {
+    pointer-events: none;
+    transition: transform 300ms ease, opacity 300ms ease;
+}
+
+.phone-input__open-list-enter-from,
+.phone-input__open-list-leave-to {
+    opacity: 0 !important;
+    transform: translateY(-20px);
+}
+
+.phone-input__open-list-enter-to,
+.phone-input__open-list-leave-from {
+    opacity: 1 !important;
+    transform: translateY(0px);
+}
